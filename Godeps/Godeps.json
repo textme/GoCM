@@ -4,7 +4,7 @@
 	"Deps": [
 		{
 			"ImportPath": "github.com/textme/gcm",
-			"Rev": "a64ef96b69a35e02eb5acea6d7495474ae699d7d"
+			"Rev": "81cfb5c299eac5329a64c278c554e8f7934b5239"
 		}
 	]
 }

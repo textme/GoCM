@@ -8,7 +8,7 @@ import (
 	"github.com/alexjlockwood/gcm"
 )
 
-func sendMessageToGCM(tokens []string, payloadAsString string) (bool, error) {
+func sendMessageToGCM(tokens []string, payloadAsString string, priority string) (bool, error) {
 	// At any exit, decrement pending
 	defer func() {
 		go decrementPending()
@@ -25,6 +25,10 @@ func sendMessageToGCM(tokens []string, payloadAsString string) (bool, error) {
 		log.Println(errText)
 		return false, errors.New(errText)
 	}
+	
+	if priority == "" {
+	    priority = gcm.NormalPriority
+	}
 
 	// Unpack the JSON payload
 	var payload map[string]interface{}
@@ -38,7 +42,7 @@ func sendMessageToGCM(tokens []string, payloadAsString string) (bool, error) {
 	// All is well, make & send the message
 	go appendAttempts(len(tokens))
 
-	msg := gcm.NewMessage(payload, tokens...)
+	msg := gcm.NewMessage(payload, priority, tokens...)
 	sender := &gcm.Sender{ApiKey: settings.GCMAPIKey}
 	response, err := sender.Send(msg, 2)
 	if err != nil {

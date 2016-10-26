@@ -12,10 +12,11 @@ func send(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 	tokens := r.PostForm["tokens"]
 	payload := r.PostFormValue("payload")
+	priority := r.PostFormValue("priority")
 
 	go func() {
 		incrementPending()
-		sendMessageToGCM(tokens, payload)
+		sendMessageToGCM(tokens, payload, priority)
 	}()
 
 	// Return immediately
