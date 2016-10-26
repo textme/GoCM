@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/alexjlockwood/gcm"
+	"github.com/textme/gcm"
 )
 
 func TestAppendAttempts(t *testing.T) {

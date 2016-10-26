@@ -5,7 +5,7 @@ import (
 	"errors"
 	"log"
 
-	"github.com/alexjlockwood/gcm"
+	"github.com/textme/gcm"
 )
 
 func sendMessageToGCM(tokens []string, payloadAsString string, priority string) (bool, error) {
