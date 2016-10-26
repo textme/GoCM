@@ -1,0 +1,16 @@
+Source: gocm
+Section: net
+Priority: extra
+Maintainer: Guillaume Plessis <gui@dotdeb.org>
+Build-Depends: debhelper (>= 8.0.0),
+               dh-golang,
+               golang-go (>=1.2),
+               git
+Standards-Version: 3.9.2
+
+Package: gocm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Built-Using: ${misc:Built-Using}
+Description: Super-simple async GCM notification send service
+ Super-simple async GCM notification send service written in Go

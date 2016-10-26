@@ -1,0 +1,19 @@
+#!/usr/bin/make -f
+
+export DH_OPTIONS
+export DH_VERBOSE=1
+export GOPATH=$(CURDIR)
+
+export DH_GOPKG := github.com/textme/GoCM
+
+override_dh_auto_build:
+	go get github.com/textme/gcm
+	go build -o bin/gocm
+
+override_dh_auto_install:
+	mkdir -p debian/tmp/usr/bin
+
+override_dh_auto_test:
+
+%:
+	dh $@ --buildsystem=golang --with=golang

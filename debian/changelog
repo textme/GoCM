@@ -1,0 +1,11 @@
+gocm (0.1-20161026~dotdeb+7.1) oldstable; urgency=low
+
+  * Use our own GCM stack to support priorities
+
+ -- Guillaume Plessis <gui@dotdeb.org>  Wed, 26 Oct 2016 18:18:42 +0000
+
+gocm (0.1-20140515~dotdeb.1) stable; urgency=low
+
+  * Initial release.
+
+ -- Guillaume Plessis <gui@dotdeb.org>  Thu, 15 May 2014 23:34:19 +0000
